@@ -4,10 +4,9 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 const TelegramBot = require('node-telegram-bot-api');
-
-// Replace these values with your actual bot token and chat ID
-const botToken = '6104998193:AAG87Zo07oUj1CcUWVN-1U0mh2-q5Tj8liM'; // Your Telegram bot token
-const botOwnerId = '1249726999'; // Your chat ID
+require('dotenv').config();
+const botToken = process.env.BOT_TOKEN;
+const botOwnerId = process.env.BOT_OWNER_ID;
 
 const bot = new TelegramBot(botToken, { polling: true });
 const jsonParser = bodyParser.json({ limit: '20mb', type: 'application/json' });
