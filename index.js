@@ -1,26 +1,24 @@
-//Join My Telegram Channel @SG_Tracker1 
 const fs = require("fs");
 const express = require("express");
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
 const TelegramBot = require('node-telegram-bot-api');
-const botOwnerId = process.env.BOT_OWNER_ID;
-const botToken = process.env.BOT_TOKEN;
+
+// Replace these values with your actual bot token and chat ID
+const botToken = '6104998193:AAG87Zo07oUj1CcUWVN-1U0mh2-q5Tj8liM'; // Your Telegram bot token
+const botOwnerId = '1249726999'; // Your chat ID
+
 const bot = new TelegramBot(botToken, { polling: true });
 const jsonParser = bodyParser.json({ limit: '20mb', type: 'application/json' });
 const urlencodedParser = bodyParser.urlencoded({ extended: true, limit: '20mb', type: 'application/x-www-form-urlencoded' });
 const app = express();
-require('dotenv').config();
 
 app.use(express.static('public'));
 app.use(jsonParser);
 app.use(urlencodedParser);
 app.use(cors());
 app.set("view engine", "ejs");
-
-// Rest of the code remains unchanged...
-
 
 const hostURL = "https://sgtrackerbot-nj1pj0tu.b4a.run";
 let use1pt = false;
@@ -348,4 +346,3 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
-//Join My Telegram Channel @SG_Tracker1 
